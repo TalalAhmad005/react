@@ -239,7 +239,12 @@ const EnvironmentConfigSchema = z.object({
    * the dependency.
    */
   enableOptionalDependencies: z.boolean().default(true),
-
+  
+  /**
+   * Enables inference of effect dependencies. Still experimental.
+   */
+  EXPERIMENTAL_inferEffectDependencies: z.boolean().default(false),
+  
   /**
    * Enables inlining ReactElement object literals in place of JSX
    * An alternative to the standard JSX transform which replaces JSX with React's jsxProd() runtime
