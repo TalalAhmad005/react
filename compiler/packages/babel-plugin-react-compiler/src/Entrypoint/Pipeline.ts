@@ -357,8 +357,8 @@ function* runWithEnvironment(
       value: hir,
     });
   }
-  
-  if (env.config.EXPERIMENTAL_inferEffectDependencies) {
+
+  if (env.config.inferEffectDependencies) {
     inferEffectDependencies(env, hir);
   }
 

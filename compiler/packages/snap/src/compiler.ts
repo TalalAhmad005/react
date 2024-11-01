@@ -142,7 +142,7 @@ function makePluginOptions(
       importSpecifierName: '$structuralCheck',
     };
   }
-  
+
   const hookPatternMatch = /@hookPattern:"([^"]+)"/.exec(firstLine);
   if (
     hookPatternMatch &&
@@ -210,7 +210,7 @@ function makePluginOptions(
   if (firstLine.includes('@enableInlineJsxTransform')) {
     inlineJsxTransform = {elementSymbol: 'react.transitional.element'};
   }
-  
+
   let inferEffectDependencies = false;
   if (firstLine.includes('@inferEffectDependencies')) {
     inferEffectDependencies = true;
@@ -246,7 +246,7 @@ function makePluginOptions(
       lowerContextAccess,
       validateBlocklistedImports,
       inlineJsxTransform,
-      EXPERIMENTAL_inferEffectDependencies: inferEffectDependencies,
+      inferEffectDependencies,
     },
     compilationMode,
     logger,
