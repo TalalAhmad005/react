@@ -36,6 +36,7 @@ import {
   inferReactivePlaces,
   inferReferenceEffects,
   inlineImmediatelyInvokedFunctionExpressions,
+  inferEffectDependencies,
 } from '../Inference';
 import {
   constantPropagation,
@@ -355,6 +356,10 @@ function* runWithEnvironment(
       name: 'PropagateScopeDependenciesHIR',
       value: hir,
     });
+  }
+
+  if (env.config.inferEffectDependencies) {
+    inferEffectDependencies(env, hir);
   }
 
   if (env.config.inlineJsxTransform) {

@@ -142,6 +142,7 @@ function makePluginOptions(
       importSpecifierName: '$structuralCheck',
     };
   }
+
   const hookPatternMatch = /@hookPattern:"([^"]+)"/.exec(firstLine);
   if (
     hookPatternMatch &&
@@ -213,6 +214,11 @@ function makePluginOptions(
     };
   }
 
+  let inferEffectDependencies = false;
+  if (firstLine.includes('@inferEffectDependencies')) {
+    inferEffectDependencies = true;
+  }
+
   let logs: Array<{filename: string | null; event: LoggerEvent}> = [];
   let logger: Logger | null = null;
   if (firstLine.includes('@logger')) {
@@ -243,6 +249,7 @@ function makePluginOptions(
       lowerContextAccess,
       validateBlocklistedImports,
       inlineJsxTransform,
+      inferEffectDependencies,
     },
     compilationMode,
     logger,
